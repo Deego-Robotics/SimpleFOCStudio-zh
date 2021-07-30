@@ -14,7 +14,7 @@ class DROGroupBox(QtWidgets.QGroupBox):
 
         self.device = SimpleFOCDevice.getInstance()
 
-        self.setTitle('Simple FOC Digital Read Out')
+        self.setTitle('Simple FOC 数字状态显示区')
         self.setObjectName('digitalReadOut')
 
         self.droHorizontalLayout = QtWidgets.QHBoxLayout(self)
@@ -22,7 +22,7 @@ class DROGroupBox(QtWidgets.QGroupBox):
 
         self.signal0Label = QtWidgets.QLabel(self)
         self.signal0Label.setObjectName('angleLabel')
-        self.signal0Label.setText('Angle')
+        self.signal0Label.setText('角度')
         self.droHorizontalLayout.addWidget(self.signal0Label)
 
         self.signal0LCDNumber = QtWidgets.QLCDNumber(self)
@@ -32,7 +32,7 @@ class DROGroupBox(QtWidgets.QGroupBox):
 
         self.signal1Label = QtWidgets.QLabel(self)
         self.signal1Label.setObjectName('velLabel')
-        self.signal1Label.setText('Velocity')
+        self.signal1Label.setText('速度')
         self.droHorizontalLayout.addWidget(self.signal1Label)
 
         self.signal1LCDNumber = QtWidgets.QLCDNumber(self)
@@ -42,7 +42,7 @@ class DROGroupBox(QtWidgets.QGroupBox):
 
         self.signal2Label = QtWidgets.QLabel(self)
         self.signal2Label.setObjectName('torqueLabel')
-        self.signal2Label.setText('Target')
+        self.signal2Label.setText('目标')
         self.droHorizontalLayout.addWidget(self.signal2Label)
 
         self.signal2LCDNumber = QtWidgets.QLCDNumber(self)
@@ -52,7 +52,7 @@ class DROGroupBox(QtWidgets.QGroupBox):
 
         self.signal3Label = QtWidgets.QLabel(self)
         self.signal3Label.setObjectName('targetLabel')
-        self.signal3Label.setText('Target')
+        self.signal3Label.setText('目标')
         self.droHorizontalLayout.addWidget(self.signal3Label)
 
         self.signal3LCDNumber = QtWidgets.QLCDNumber(self)
@@ -111,10 +111,10 @@ class DROGroupBox(QtWidgets.QGroupBox):
 
     def commandResponseReceived(self, cmdRespose):        
         if self.device.torqueType ==  SimpleFOCDevice.VOLTAGE_TORQUE:
-            self.signal2Label.setText("Voltage")
+            self.signal2Label.setText("电压")
             self.signal2LCDNumber.display(self.device.voltageQNow)
         else: # dc current or FOC current
-            self.signal2Label.setText("Current")
+            self.signal2Label.setText("电流")
             self.signal2LCDNumber.display(self.device.currentQNow)
 
         self.signal3LCDNumber.display(self.device.targetNow)

@@ -15,10 +15,10 @@ class SimpleFOCConfigToolBar(QtWidgets.QToolBar):
         self.addDeviceAction.setPopupMode(QtWidgets.QToolButton.InstantPopup)
 
         self.addDeviceMenu = QtWidgets.QMenu(self.addDeviceAction)
-        self.addDeviceTreeView  = QtWidgets.QAction("Tree View",self.addDeviceMenu)
+        self.addDeviceTreeView  = QtWidgets.QAction("树形视图",self.addDeviceMenu)
         self.addDeviceTreeView.setIcon(GUIToolKit.getIconByName('tree'))
         self.addDeviceTreeView.triggered.connect(devicesTabedWidget.addDeviceTree)
-        self.addDeviceFormView  = QtWidgets.QAction("Form View",self.addDeviceMenu)
+        self.addDeviceFormView  = QtWidgets.QAction("表格视图",self.addDeviceMenu)
         self.addDeviceFormView.setIcon(GUIToolKit.getIconByName('form'))
         self.addDeviceFormView.triggered.connect(devicesTabedWidget.addDeviceForm)
         

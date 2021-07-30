@@ -23,45 +23,45 @@ class PidGroupBox(QtWidgets.QGroupBox):
         self.activeLPF = self.device.LPFVelocity
 
         self.setObjectName('pidConfigurator')
-        self.setTitle('PID Controller configuration')
+        self.setTitle('PID控制器设置')
 
         self.gridLayout = QtWidgets.QGridLayout(self)
         self.gridLayout.setObjectName('gridLayout')
         
         self.sPidLabel = QtWidgets.QLabel(self)
         self.sPidLabel.setObjectName('pgLabel')
-        self.sPidLabel.setText('Select PID')
+        self.sPidLabel.setText('选择PID模式')
         self.gridLayout.addWidget(self.sPidLabel, 0, 1, 1, 1)
 
         self.selectorPIDF = QtWidgets.QComboBox(self)
         self.selectorPIDF.setObjectName('selectPIDF')
-        self.selectorPIDF.addItems(['Velocity', 'Angle', 'Current Q', 'Current D'])
+        self.selectorPIDF.addItems(['速度', '角度', '电流 Q', '电流 D'])
         self.selectorPIDF.currentIndexChanged.connect(self.changePIDF)
         self.gridLayout.addWidget(self.selectorPIDF, 0, 2, 1, 1)
 
         self.pgLabel = QtWidgets.QLabel(self)
         self.pgLabel.setObjectName('pgLabel')
-        self.pgLabel.setText('Proportional gain')
+        self.pgLabel.setText('P 比例项')
         self.gridLayout.addWidget(self.pgLabel, 1, 1, 1, 1)
 
         self.iglabel = QtWidgets.QLabel(self)
         self.iglabel.setObjectName('iglabel')
-        self.iglabel.setText('Integral gain')
+        self.iglabel.setText('I 积分项')
         self.gridLayout.addWidget(self.iglabel, 2, 1, 1, 1)
 
         self.dgLabel = QtWidgets.QLabel(self)
         self.dgLabel.setObjectName('dgLabel')
-        self.dgLabel.setText('Derivative gain')
+        self.dgLabel.setText('D 微分项')
         self.gridLayout.addWidget(self.dgLabel, 3, 1, 1, 1)
 
         self.vrLabel = QtWidgets.QLabel(self)
         self.vrLabel.setObjectName('vrLabel')
-        self.vrLabel.setText('Output ramp')
+        self.vrLabel.setText('斜坡输出')
         self.gridLayout.addWidget(self.vrLabel, 4, 1, 1, 1)
 
         self.vrLabel = QtWidgets.QLabel(self)
         self.vrLabel.setObjectName('lpfLabel')
-        self.vrLabel.setText('Low pass filter')
+        self.vrLabel.setText('低通滤波器')
         self.gridLayout.addWidget(self.vrLabel, 5, 1, 1, 1)
 
         self.pgLineEdit = ConfigQLineEdit(self)

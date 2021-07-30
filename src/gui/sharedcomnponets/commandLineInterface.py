@@ -14,7 +14,7 @@ class CommandLineWidget(QtWidgets.QGroupBox):
         self.device = SimpleFOCDevice.getInstance()
 
         self.setObjectName('groupBox')
-        self.setTitle('Command Line interface')
+        self.setTitle('命令行交互界面')
 
         self.cmlVerticalLayout = QtWidgets.QVBoxLayout(self)
         self.cmlVerticalLayout.setObjectName('cmlVerticalLayout')
@@ -39,7 +39,7 @@ class CommandLineWidget(QtWidgets.QGroupBox):
 
         self.sendButton = QtWidgets.QPushButton(self.cmlWidget)
         self.sendButton.setObjectName('sendButton')
-        self.sendButton.setText('Send')
+        self.sendButton.setText('发送')
         self.sendButton.setIcon(GUIToolKit.getIconByName('send'))
         self.sendButton.clicked.connect(self.sendAction)
 
@@ -50,14 +50,14 @@ class CommandLineWidget(QtWidgets.QGroupBox):
         self.cmlHorizontalLayout.addWidget(self.clearButton)
         self.clearButton.setIcon(GUIToolKit.getIconByName('delete'))
         self.clearButton.clicked.connect(self.clearAction)
-        self.clearButton.setText('Clear')
+        self.clearButton.setText('清除')
         
         self.listDevices = QtWidgets.QPushButton(self.cmlWidget)
         self.listDevices.setObjectName('listDevices')
         self.cmlHorizontalLayout.addWidget(self.listDevices)
         self.listDevices.setIcon(GUIToolKit.getIconByName('list'))
         self.listDevices.clicked.connect(self.sendListDevices)
-        self.listDevices.setText('List Devices')
+        self.listDevices.setText('设备列表')
 
         self.cmlVerticalLayout.addWidget(self.cmlWidget)
         self.device.addConnectionStateListener(self)
@@ -66,10 +66,10 @@ class CommandLineWidget(QtWidgets.QGroupBox):
     def connectionStateChanged(self, deviceConnected):
         if deviceConnected is True:
             self.enabeUI()
-            self.publishCommandResponseData('Connected ...')
+            self.publishCommandResponseData('已连接 ...')
         else:
             self.disableUI()
-            self.publishCommandResponseData('Disconnected ...')
+            self.publishCommandResponseData('已断开 ...')
 
     def enabeUI(self):
 

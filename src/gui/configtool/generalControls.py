@@ -19,7 +19,7 @@ class GeneralControls(QtWidgets.QGroupBox):
 
         self.device = SimpleFOCDevice.getInstance()
 
-        self.setTitle('General Controls')
+        self.setTitle('通用控制')
 
         self.setObjectName('generalControls')
 
@@ -29,21 +29,21 @@ class GeneralControls(QtWidgets.QGroupBox):
 
         self.enableDeviceButton = QtWidgets.QPushButton(self)
         self.enableDeviceButton.setObjectName('enButton')
-        self.enableDeviceButton.setText('Enable Device')
+        self.enableDeviceButton.setText('使能设备')
         self.enableDeviceButton.setIcon(GUIToolKit.getIconByName('greendot'))
         self.enableDeviceButton.clicked.connect(self.toggleEnable)
         self.gcGridLayout.addWidget(self.enableDeviceButton, 1, 0, 1, 1)
 
         self.sensorZeroButton = QtWidgets.QPushButton(self)
         self.sensorZeroButton.setObjectName('homeButton')
-        self.sensorZeroButton.setText('Sensor Zero')
+        self.sensorZeroButton.setText('位置归零')
         self.sensorZeroButton.setIcon(GUIToolKit.getIconByName('home'))
         self.sensorZeroButton.clicked.connect(self.setSensorZero)
         self.gcGridLayout.addWidget(self.sensorZeroButton, 1, 1, 1, 1)
 
         self.setZeroTarget = QtWidgets.QPushButton(self)
         self.setZeroTarget.setObjectName('zeroButton')
-        self.setZeroTarget.setText('Zero Target')
+        self.setZeroTarget.setText('目标归零')
         self.setZeroTarget.setIcon(GUIToolKit.getIconByName('stop'))
         self.setZeroTarget.clicked.connect(self.setTargetZero)
         self.gcGridLayout.addWidget(self.setZeroTarget, 1, 2, 1, 1)
@@ -82,8 +82,8 @@ class GeneralControls(QtWidgets.QGroupBox):
         
     def reloadValues(self):
         if self.device.deviceStatus:
-            self.enableDeviceButton.setText('Disable Device')
+            self.enableDeviceButton.setText('失能设备')
             self.enableDeviceButton.setIcon(GUIToolKit.getIconByName('reddot'))
         else:
-            self.enableDeviceButton.setText('Enable Device')
+            self.enableDeviceButton.setText('使能设备')
             self.enableDeviceButton.setIcon(GUIToolKit.getIconByName('greendot'))

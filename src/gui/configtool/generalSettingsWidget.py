@@ -19,7 +19,7 @@ class GeneralSettingsGroupBox(QtWidgets.QGroupBox):
 
         self.device = SimpleFOCDevice.getInstance()
 
-        self.setTitle('General device settings')
+        self.setTitle('通用设备设置')
 
         self.setObjectName('generalDeviceSettings')
 
@@ -28,7 +28,7 @@ class GeneralSettingsGroupBox(QtWidgets.QGroupBox):
 
         self.motionDownsample = QtWidgets.QLabel(self)
         self.motionDownsample.setObjectName('motionDownsample')
-        self.motionDownsample.setText('Motion Downsample')
+        self.motionDownsample.setText('运动控制频率降采样')
         self.gcGridLayout.addWidget(self.motionDownsample, 2, 0, 1, 1)
 
         self.motionDownsampleEdit = ConfigQLineEdit(self)
@@ -40,17 +40,17 @@ class GeneralSettingsGroupBox(QtWidgets.QGroupBox):
 
         self.curLimitLabel = QtWidgets.QLabel(self)
         self.curLimitLabel.setObjectName('curLimitLabel')
-        self.curLimitLabel.setText('Current Limit')
+        self.curLimitLabel.setText('电流限制')
         self.gcGridLayout.addWidget(self.curLimitLabel, 3, 0, 1, 1)
 
         self.velLimitlabel = QtWidgets.QLabel(self)
         self.velLimitlabel.setObjectName('velLimitlabel')
-        self.velLimitlabel.setText('Velocity limit')
+        self.velLimitlabel.setText('速度限制')
         self.gcGridLayout.addWidget(self.velLimitlabel, 4, 0, 1, 1)
 
         self.volLimitLabel = QtWidgets.QLabel(self)
         self.volLimitLabel.setObjectName('volLimitLabel')
-        self.volLimitLabel.setText('Voltage limit')
+        self.volLimitLabel.setText('电压限制')
         self.gcGridLayout.addWidget(self.volLimitLabel, 6, 0, 1, 1)
 
         self.clLineEdit = ConfigQLineEdit(self)

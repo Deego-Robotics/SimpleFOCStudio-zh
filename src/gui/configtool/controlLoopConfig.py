@@ -12,7 +12,7 @@ class ControlLoopGroupBox(QtWidgets.QGroupBox):
         self.device = SimpleFOCDevice.getInstance()
 
         self.setObjectName('controlLoop')
-        self.setTitle('Control Loop Mode')
+        self.setTitle('控制环模式')
 
         self.controlLoopHorizontalLayout = QtWidgets.QHBoxLayout(self)
         self.controlLoopHorizontalLayout.setObjectName('controlLoopHorizontalLayout')
@@ -20,7 +20,7 @@ class ControlLoopGroupBox(QtWidgets.QGroupBox):
         
         self.selectorControlLoop = QtWidgets.QComboBox(self)
         self.selectorControlLoop.setObjectName('selectorControlLoop')
-        self.selectorControlLoop.addItems(['Torque', 'Velocity', 'Angle', 'Velocity openloop', 'Angle openloop'])
+        self.selectorControlLoop.addItems(['力矩', '速度', '角度', '速度开环', '角度开环'])
         self.selectorControlLoop.currentIndexChanged.connect(self.changeControlLoop)
         self.controlLoopHorizontalLayout.addWidget(self.selectorControlLoop)
 

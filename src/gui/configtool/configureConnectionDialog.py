@@ -92,12 +92,12 @@ class ConfigureSerailConnectionDialog(QtWidgets.QDialog):
         self.gridLayout.addWidget(self.buttonBox, 3, 0, 1, 4)
 
         self.setWindowTitle('Configure serial connection')
-        self.portNameLabel.setText('Port Name')
-        self.bitRateLabel.setText('Bit rate')
-        self.parityLabel.setText('Parity')
-        self.byteSizeLabel.setText('Byte size')
-        self.stopBitsLabel.setText('Stop bits')
-        self.connectionIDLabel.setText('Conn ID')
+        self.portNameLabel.setText('端口号')
+        self.bitRateLabel.setText('波特率')
+        self.parityLabel.setText('奇偶校验')
+        self.byteSizeLabel.setText('字节数')
+        self.stopBitsLabel.setText('停止位')
+        self.connectionIDLabel.setText('命令ID')
 
         self.buttonBox.accepted.connect(self.accept)
         self.buttonBox.rejected.connect(self.reject)

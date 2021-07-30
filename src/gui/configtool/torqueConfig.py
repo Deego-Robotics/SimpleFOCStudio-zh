@@ -12,7 +12,7 @@ class TorqueGroupBox(QtWidgets.QGroupBox):
         self.device = SimpleFOCDevice.getInstance()
 
         self.setObjectName('torqueMode')
-        self.setTitle('Torque Mode')
+        self.setTitle('力矩模式')
         
         self.torqueTypeHorizontalLayout = QtWidgets.QHBoxLayout(self)
         self.torqueTypeHorizontalLayout.setObjectName('torqueHorizontalLayout')
@@ -21,7 +21,7 @@ class TorqueGroupBox(QtWidgets.QGroupBox):
         
         self.selectorTorque = QtWidgets.QComboBox(self)
         self.selectorTorque.setObjectName('selectorControlLoop')
-        self.selectorTorque.addItems(['Voltage', 'DC Current', 'FOC Current'])
+        self.selectorTorque.addItems(['电压', 'DC电流', 'FOC电流'])
         self.selectorTorque.currentIndexChanged.connect(self.changeTorque)
         self.torqueTypeHorizontalLayout.addWidget(self.selectorTorque)
 

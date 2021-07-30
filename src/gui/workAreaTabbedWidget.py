@@ -88,7 +88,7 @@ class WorkAreaTabbedWidget(QtWidgets.QTabWidget):
                 except Exception as exception:
                     msgBox = QtWidgets.QMessageBox()
                     msgBox.setIcon(QtWidgets.QMessageBox.Warning)
-                    msgBox.setText('Error while opening selected file')
+                    msgBox.setText('打开文件时出错')
                     msgBox.setWindowTitle('SimpleFOC configDeviceTool')
                     msgBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
                     msgBox.exec()
@@ -100,7 +100,7 @@ class WorkAreaTabbedWidget(QtWidgets.QTabWidget):
                 options = QtWidgets.QFileDialog.Options()
                 options |= QtWidgets.QFileDialog.DontUseNativeDialog
                 fileName, _ = QtWidgets.QFileDialog.getSaveFileName(self,
-                                                                    'Save device configuration',
+                                                                    '保存电机配置参数',
                                                                     '',
                                                                     'JSON configuration file (*.json)',
                                                                     options=options)
@@ -133,5 +133,5 @@ class WorkAreaTabbedWidget(QtWidgets.QTabWidget):
             self.cmdLineTool = CommandLineConsoleTool()
             self.activeToolsList.append(self.cmdLineTool)
             self.addTab(self.cmdLineTool,
-                        self.cmdLineTool.getTabIcon(), 'Cmd Line')
+                        self.cmdLineTool.getTabIcon(), '命令行交互')
             self.setCurrentIndex(self.currentIndex() + 1)

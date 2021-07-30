@@ -13,7 +13,7 @@ class DeviceJoggingControl(QtWidgets.QGroupBox):
         self.device = SimpleFOCDevice.getInstance()
 
         self.setObjectName('joggingControl')
-        self.setTitle('Jogging control')
+        self.setTitle('点动控制')
 
         self.horizontalLayout = QtWidgets.QHBoxLayout(self)
         self.horizontalLayout.setObjectName('generalControlHL')

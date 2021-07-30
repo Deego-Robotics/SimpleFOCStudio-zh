@@ -15,7 +15,7 @@ class ConfigureConnection(QtWidgets.QGroupBox):
 
         self.device = SimpleFOCDevice.getInstance()
 
-        self.setTitle('Configure serial connection')
+        self.setTitle('串口连接设置')
         self.setObjectName('configureConnection')
 
         self.configCoonLayout = QtWidgets.QHBoxLayout(self)
@@ -80,17 +80,17 @@ class ConfigureConnection(QtWidgets.QGroupBox):
         self.connectDisconnectButton.setIcon(
             GUIToolKit.getIconByName('connect'))
         self.connectDisconnectButton.setObjectName('connectDeviceButton')
-        self.connectDisconnectButton.setText('Connect')
+        self.connectDisconnectButton.setText('连接')
         self.connectDisconnectButton.clicked.connect(
             self.connectDisconnectDeviceAction)
 
         self.configCoonLayout.addWidget(self.connectDisconnectButton)
 
-        self.portNameLabel.setText('Port Name')
-        self.bitRateLabel.setText('Bit rate')
-        self.parityLabel.setText('Parity')
-        self.byteSizeLabel.setText('Byte size')
-        self.stopBitsLabel.setText('Stop bits')
+        self.portNameLabel.setText('端口号')
+        self.bitRateLabel.setText('波特率')
+        self.parityLabel.setText('奇偶校验')
+        self.byteSizeLabel.setText('字节数')
+        self.stopBitsLabel.setText('停止位')
 
         self.device.addConnectionStateListener(self)
         self.connectionStateChanged(self.device.isConnected)
@@ -114,11 +114,11 @@ class ConfigureConnection(QtWidgets.QGroupBox):
 
     def connectionStateChanged(self, isConnectedFlag):
         if isConnectedFlag:
-            self.connectDisconnectButton.setText('Disconnect')
+            self.connectDisconnectButton.setText('断开')
             self.connectDisconnectButton.setIcon(
                 GUIToolKit.getIconByName('disconnect'))
         else:
-            self.connectDisconnectButton.setText('Connect')
+            self.connectDisconnectButton.setText('连接')
             self.connectDisconnectButton.setIcon(
                 GUIToolKit.getIconByName('connect'))
 

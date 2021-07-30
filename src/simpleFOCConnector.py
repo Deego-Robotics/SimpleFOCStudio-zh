@@ -415,7 +415,7 @@ class SimpleFOCDevice:
 
             msgBox = QtWidgets.QMessageBox()
             msgBox.setIcon(QtWidgets.QMessageBox.Warning)
-            msgBox.setText('Error while trying to open serial port')
+            msgBox.setText('打开串口时出错')
             msgBox.setWindowTitle('SimpleFOC ConfigTool')
             msgBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             msgBox.exec()

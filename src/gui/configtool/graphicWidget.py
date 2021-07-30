@@ -18,7 +18,7 @@ class SimpleFOCGraphicWidget(QtWidgets.QGroupBox):
 
     
     signals = ['Target', 'Vq','Vd','Cq','Cd','Vel','Angle']
-    signal_tooltip = ['Target', 'Voltage D [Volts]','Voltage D [Volts]','Current Q [miliAmps]','Current D [miliAmps]','Velocity [rad/sec]','Angle [rad]']
+    signal_tooltip = ['目标', '电压 Q [V]','电压 D [V]','电流 Q [mA]','电流 D [mA]','速度 [rad/sec]','角度 [rad]']
     signalColors = [GUIToolKit.RED_COLOR, GUIToolKit.BLUE_COLOR, GUIToolKit.PURPLE_COLOR,GUIToolKit.YELLOW_COLOR, GUIToolKit.MAROON_COLOR, GUIToolKit.ORANGE_COLOR, GUIToolKit.GREEN_COLOR]
     signalIcons = ['reddot', 'bluedot','purpledot', 'yellowdot', 'maroondot', 'orangedot', 'greendot']
 
@@ -27,7 +27,7 @@ class SimpleFOCGraphicWidget(QtWidgets.QGroupBox):
         super().__init__(parent)
 
         self.setObjectName('plotWidget')
-        self.setTitle('Real time motor variables: ')
+        self.setTitle('实时电机数据: ')
         self.horizontalLayout = QtWidgets.QVBoxLayout(self)
         self.device = SimpleFOCDevice.getInstance()
 
@@ -161,7 +161,7 @@ class ControlPlotPanel(QtWidgets.QWidget):
         self.horizontalLayout1.setObjectName('horizontalLayout')
 
         self.startStopButton = QtWidgets.QPushButton(self)
-        self.startStopButton.setText('Start')
+        self.startStopButton.setText('开始')
         self.startStopButton.setObjectName('Start')
         self.startStopButton.clicked.connect(self.startStoPlotAction)
         self.startStopButton.setIcon(GUIToolKit.getIconByName('start'))
@@ -169,14 +169,14 @@ class ControlPlotPanel(QtWidgets.QWidget):
 
         self.pauseContinueButton = QtWidgets.QPushButton(self)
         self.pauseContinueButton.setObjectName('pauseButton')
-        self.pauseContinueButton.setText('Pause')
+        self.pauseContinueButton.setText('暂停')
         self.pauseContinueButton.setIcon(GUIToolKit.getIconByName('pause'))
         self.pauseContinueButton.clicked.connect(self.pauseContinuePlotAction)
         self.horizontalLayout1.addWidget(self.pauseContinueButton)
 
         self.zoomAllButton = QtWidgets.QPushButton(self)
         self.zoomAllButton.setObjectName('zoomAllButton')
-        self.zoomAllButton.setText('View all')
+        self.zoomAllButton.setText('显示所有')
         self.zoomAllButton.setIcon(GUIToolKit.getIconByName('zoomall'))
         self.zoomAllButton.clicked.connect(self.zoomAllPlot)
         self.horizontalLayout1.addWidget(self.zoomAllButton)
@@ -201,7 +201,7 @@ class ControlPlotPanel(QtWidgets.QWidget):
         self.horizontalLayout1.addItem(spacerItem)
 
         self.downsampleLabel = QtWidgets.QLabel(self)
-        self.downsampleLabel.setText('Downsample')
+        self.downsampleLabel.setText('降采样')
         self.downampleValue = QtWidgets.QLineEdit(self.downsampleLabel)
         self.downampleValue.setText("100")
         self.downampleValue.editingFinished.connect(self.changeDownsampling)
@@ -213,7 +213,7 @@ class ControlPlotPanel(QtWidgets.QWidget):
     def startStoPlotAction(self):
         if self.controlledPlot.currentStatus is self.controlledPlot.initialConnectedState:
             # Start pressed
-            self.startStopButton.setText('Stop')
+            self.startStopButton.setText('停止')
             self.startStopButton.setIcon(GUIToolKit.getIconByName('stop'))
             self.controlledPlot.currentStatus = \
                 self.controlledPlot.connectedPlottingStartedState
@@ -222,9 +222,9 @@ class ControlPlotPanel(QtWidgets.QWidget):
             self.updateMonitorVariables()
         else:
             # Stop pressed
-            self.startStopButton.setText('Start')
+            self.startStopButton.setText('开始')
             self.startStopButton.setIcon(GUIToolKit.getIconByName('start'))
-            self.pauseContinueButton.setText('Pause')
+            self.pauseContinueButton.setText('暂停')
             self.pauseContinueButton.setIcon(GUIToolKit.getIconByName('pause'))
             self.pauseContinueButton.setEnabled(False)
             self.stopAndResetPlot()
@@ -234,12 +234,12 @@ class ControlPlotPanel(QtWidgets.QWidget):
     def pauseContinuePlotAction(self):
         if self.controlledPlot.currentStatus is self.controlledPlot.connectedPausedState:
             # Continue pressed
-            self.pauseContinueButton.setText('Pause')
+            self.pauseContinueButton.setText('停止')
             self.pauseContinueButton.setIcon(GUIToolKit.getIconByName('pause'))
             self.controlledPlot.currentStatus = self.controlledPlot.connectedPlottingStartedState
         else:
             # Pause pressed
-            self.pauseContinueButton.setText('Continue')
+            self.pauseContinueButton.setText('继续')
             self.pauseContinueButton.setIcon(
                 GUIToolKit.getIconByName('continue'))
             self.controlledPlot.currentStatus = self.controlledPlot.connectedPausedState
