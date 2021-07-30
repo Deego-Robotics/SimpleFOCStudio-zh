@@ -1,4 +1,5 @@
 ## *Simple**FOC**Studio*
+Forked from [**SimpleFOCStudio**](https://github.com/JorgeMaker/SimpleFOCStudio), commit [0e460b6](https://github.com/JorgeMaker/SimpleFOCStudio/commit/0e460b665964308d3e6dba8d61d5473a58c26b2b).
 
 Graphical user interface for the [*Simple**FOC**library*](https://github.com/simplefoc). This application allows to tune and configure any BLDC/Stepper *Simple**FOC**library* controlled device, using serial port communications and the [Commander](https://docs.simplefoc.com/commander_interface) interface.
 #### The main features are:
